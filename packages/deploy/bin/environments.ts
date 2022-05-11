@@ -31,7 +31,7 @@ export const devEnvProps: CDKPipelineStackProps = {
       'arn:aws:codestar-connections:eu-west-1:805337131662:connection/639a94a0-b8c8-4fbc-96f9-19e53d5f75c8',
     repo: 'reamplify',
     branch: 'master',
-    requiresApproval: true,
+    requiresApproval: false,
     enable: true,
   },
 } as const;
@@ -53,7 +53,7 @@ export const prodHomepage = {
       'arn:aws:codestar-connections:eu-west-2:805615297525:connection/288fbcd0-10f4-4ee8-a490-a9c692fe61c8',
     repo: 'reamplify',
     branch: 'master',
-    requiresApproval: true,
+    requiresApproval: false,
     enable: true,
   },
   env: {

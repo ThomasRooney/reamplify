@@ -18,7 +18,7 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="https://app.reflow.io">
-            Reflow (AI Testing Tool)
+            Reflow (AI-Augmented Browser Tests)
           </Link>
           <Link
             className="button button--secondary button--lg"

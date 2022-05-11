@@ -60,7 +60,7 @@ This architecture has been battle-tested and is in production use at several com
 ## What doesn't work
 
  * We haven't implemented any of the following amplify directives. Additional work would be needed before automatically
-   creating these resources into a Reamplify application
+   creating these resources in a Reamplify application from parsed graphql directives.
    * `@searchable`
    * `@predictions`
    * `@http`
@@ -220,7 +220,7 @@ Once you've completed this process, setup continuous deployment on your reposito
 3. Execute `copyAllTables` with the source database suffix, destination database suffix, `inline: false`, and `totalSegments: 25`. `totalSegments` represents the maximum degree of parallelism when copying the database across from the source suffix
   (it will be automatically lowered if the database is small, via the `estimatedTotalRecords` property in dynamodb). Higher is faster, too high and the database might start throttling lambdas.
 4. Watch cloudwatch insights log group `copyTable` for console output / errors. In particular, if `failed to invoke` is found, the job may need to be restarted. The job can be restarted from the last successful request, using the `lastEvaluatedKey` property.
-5. (Important) Validate that the number of items in the destination table is the same as the source table. If it is less, repeat the process, lowering `totalSegents`. We have observed, at a high parallelism-to-item ratio, not all data points being scanned. 
+5. (Important) Validate that the number of items in the destination table is the same as the source table. If it is less, repeat the process, lowering `totalSegments`. We have observed, at a high parallelism-to-item ratio, not all data points being scanned. 
 6. If a segment cannot complete within 15 minutes (e.g. database size too large), its job may need to be continued manually. Lookup `nextEvent` in cloudwatch insights and manually invoke `copyTable` lambda with these `nextEvent` objects.
 
 If the database size is small, this process can be run entirely locally on a developer's machine via mutating the `scripts/copy-table.ts` script to point at two environments and setting `inline: true`.
@@ -276,8 +276,6 @@ professional-grade application our opinion is that the advantages far-outweigh t
  * Many npm packages do not support PnP, and require manual fine-tuning in .yarnrc.yml to bring them in. To support PnP
    each package needs to explicitly declare their dependencies, and many packages instead just assume that certain
    other packages are installed. 
-
-[https://yarnpkg.com/features/zero-installs](https://yarnpkg.com/features/zero-installs)
 
 ## Testing
 

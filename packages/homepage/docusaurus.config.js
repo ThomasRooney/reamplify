@@ -6,8 +6,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'reAmplify',
-  tagline: 'Eject AWS Amplify',
+  title: 'Reamplify',
+  tagline: 'Alternative AWS Amplify CLI',
   url: 'https://reamplify.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -43,7 +43,7 @@ const config = {
     ({
       navbar: {
         hideOnScroll: true,
-        title: 'reAmplify',
+        title: 'Reamplify',
         items: [
           {
             href: 'https://github.com/thomasrooney/reamplify',
