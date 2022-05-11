@@ -3,7 +3,7 @@ import { Duration, RemovalPolicy, Stack, StackProps, Tags } from 'aws-cdk-lib';
 import * as cloudwatch from 'aws-cdk-lib/aws-cloudwatch';
 import { ComparisonOperator, TreatMissingData } from 'aws-cdk-lib/aws-cloudwatch';
 import { reamplifyLambdas } from '../lambda';
-import { FilterPattern, ILogGroup, LogGroup, RetentionDays } from 'aws-cdk-lib/aws-logs';
+import { FilterPattern, ILogGroup, LogGroup } from 'aws-cdk-lib/aws-logs';
 import * as cw_actions from 'aws-cdk-lib/aws-cloudwatch-actions';
 import * as sns from 'aws-cdk-lib/aws-sns';
 import * as ssm from 'aws-cdk-lib/aws-ssm';
@@ -30,8 +30,6 @@ type MetricAlarms = {
 export class ReamplifyCloudwatchMetricStack extends Stack {
   public readonly namespace: string;
   public readonly reamplifyLambdas: Record<string, MetricAlarms>;
-  public readonly logGroupReplayer: ILogGroup;
-  public readonly logGroupRecorder: ILogGroup;
   constructor(scope: Construct, id: string, props: StackProps & CloudwatchMetricProps & SlackConfigurationProps) {
     super(scope, id, props);
     Tags.of(this).add('construct', 'CloudwatchMetric');
@@ -49,40 +47,6 @@ export class ReamplifyCloudwatchMetricStack extends Stack {
     const notifyTopic = sns.Topic.fromTopicArn(this, 'SlackNotify', chatopsTopicArn.stringValue);
 
     this.namespace = `${props.appName}/${props.workspace}/License`;
-
-    this.logGroupRecorder = new LogGroup(this, 'recorderLogGroup', {
-      logGroupName: `/${props.appName}/ecs/${props.workspace}/recorder`,
-      retention: RetentionDays.ONE_WEEK,
-      removalPolicy: props.stateAssetRemovalPolicy,
-    });
-    this.logGroupReplayer = new LogGroup(this, 'replayerLogGroup', {
-      logGroupName: `/${props.appName}/ecs/${props.workspace}/replayer`,
-      retention: RetentionDays.ONE_WEEK,
-      removalPolicy: props.stateAssetRemovalPolicy,
-    });
-
-    const ecsMetricFilter = this.logGroupReplayer.addMetricFilter('ECSBrowserMetricFilter', {
-      metricName: 'ECSBrowserNotifyMessage',
-      metricNamespace: `/${props.appName}/${props.workspace}/Errors`,
-      metricValue: '1',
-      filterPattern: FilterPattern.anyTerm('[WARN]', '[ERROR]', '[FATAL]'),
-      defaultValue: 0,
-    });
-    const ecsLogMetric = ecsMetricFilter.metric({
-      period: Duration.minutes(1),
-    });
-
-    const ecsAlarm = new cloudwatch.Alarm(this, 'ECSBrowserLogAlarm', {
-      metric: ecsLogMetric,
-      threshold: 0,
-      evaluationPeriods: 1,
-      treatMissingData: TreatMissingData.NOT_BREACHING,
-      comparisonOperator: ComparisonOperator.GREATER_THAN_THRESHOLD,
-      actionsEnabled: true,
-    });
-    ecsAlarm.applyRemovalPolicy(RemovalPolicy.DESTROY);
-    ecsAlarm.addAlarmAction(new cw_actions.SnsAction(notifyTopic));
-    ecsAlarm.addOkAction(new cw_actions.SnsAction(notifyTopic));
 
     this.reamplifyLambdas = Object.entries(reamplifyLambdas)
       .filter(([, lambdaConfig]) => lambdaConfig.scope === 'app' || lambdaConfig.scope === 'userpool')
@@ -216,9 +180,10 @@ export class ReamplifyCloudwatchMetricStack extends Stack {
       new cloudwatch.AlarmStatusWidget({
         width: 24,
         height: 12,
-        alarms: Object.values(this.reamplifyLambdas)
-          .reduce((acc, lambda) => acc.concat(lambda.alarms), <cloudwatch.Alarm[]>[])
-          .concat(ecsAlarm),
+        alarms: Object.values(this.reamplifyLambdas).reduce(
+          (acc, lambda) => acc.concat(lambda.alarms),
+          <cloudwatch.Alarm[]>[]
+        ),
       })
     );
 
