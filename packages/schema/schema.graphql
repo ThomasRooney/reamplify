@@ -1,0 +1,32 @@
+type User @model
+@auth(rules: [
+    {allow: owner, ownerField: "id", operations: [read, update]},
+    {allow: private, provider: iam, operations: [create, update, read, delete]},
+])
+{
+    id: ID! @primaryKey
+    email: String! @index(name: "userByEmail", queryField: "userByEmail")
+    preferred_name: String!
+    createdAt: AWSDateTime!
+    updatedAt: AWSDateTime!
+}
+
+type Mutation {
+    # Example of a Lambda resolved API
+    deleteItem(todoItemID: ID!): TodoItem @function(name: "deleteItemFn")
+}
+
+type TodoItem @model
+@auth(rules: [
+    {allow: owner, operations: [create, update, read]},
+    {allow: private, provider: iam, operations: [create, update, read, delete]},
+])
+{
+    id: ID! @primaryKey
+    description: String!
+    done: Boolean!
+    rank: String!
+    createdAt: AWSDateTime!
+    updatedAt: AWSDateTime!
+    owner: ID @index(name: "todoItemByOwner", queryField: "todoItemByOwner")
+}

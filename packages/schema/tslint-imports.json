@@ -1,0 +1,13 @@
+{
+  "extends": [
+    "tslint-etc"
+  ],
+  "linterOptions": {
+    "exclude": [
+      "./src/*.js"
+    ]
+  },
+  "rules": {
+    "no-unused-declaration": true
+  }
+}

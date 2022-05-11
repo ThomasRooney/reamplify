@@ -1,0 +1,64 @@
+## [Start] Authorization Steps. **
+$util.qr($ctx.stash.put("hasAuth", true))
+#set( $isAuthorized = false )
+#set( $primaryFieldMap = {} )
+#if( $util.authType() == "IAM Authorization" )
+  #set( $adminRoles = [""] )
+  #foreach( $adminRole in $adminRoles )
+    #if( $ctx.identity.userArn.contains($adminRole) && $ctx.identity.userArn != $ctx.stash.authRole && $ctx.identity.userArn != $ctx.stash.unauthRole )
+      #return($util.toJson({}))
+    #end
+  #end
+  #if( !$isAuthorized )
+    #if( $ctx.identity.userArn == $ctx.stash.authRole )
+      #set( $isAuthorized = true )
+    #end
+  #end
+#end
+#if( $util.authType() == "User Pool Authorization" )
+  #if( !$util.isNull($ctx.args.id) )
+    #set( $idClaim = $util.defaultIfNull($ctx.identity.claims.get("username"), $util.defaultIfNull($ctx.identity.claims.get("cognito:username"), "___xamznone____")) )
+    #if( $util.isString($ctx.args.id) )
+      #set( $idCondition = ($idClaim == $ctx.args.id) )
+    #else
+      #set( $idCondition = ($idClaim == $util.defaultIfNull($ctx.args.id.get("eq"), "___xamznone____")) )
+    #end
+    #if( $idCondition )
+      #set( $isAuthorized = true )
+      $util.qr($ctx.stash.put("authFilter", null))
+    #end
+  #else
+    $util.qr($primaryFieldMap.put("id", $util.defaultIfNull($ctx.identity.claims.get("username"), $util.defaultIfNull($ctx.identity.claims.get("cognito:username"), "___xamznone____"))))
+  #end
+  #if( !$isAuthorized && !$primaryFieldMap.isEmpty() )
+    #if( $util.isNull($ctx.args.id) )
+      #set( $authFilter = $util.defaultIfNull($ctx.stash.get("authFilter").get("or"), []) )
+      #foreach( $entry in $primaryFieldMap.entrySet() )
+        #set( $filterMap = {} )
+        #if( $util.isList($entry.value) )
+          $util.qr($filterMap.put($entry.key, { "in": $entry.value }))
+        #else
+          $util.qr($filterMap.put($entry.key, { "eq": $entry.value }))
+        #end
+        $util.qr($authFilter.add($filterMap))
+      #end
+      $util.qr($ctx.stash.put("authFilter", { "or": $authFilter }))
+    #else
+      #if( $util.isNull($ctx.stash.authFilter) )
+        #set( $modelQueryExpression = $ctx.stash.modelQueryExpression )
+        #foreach( $entry in $primaryFieldMap.entrySet() )
+          #set( $modelQueryExpression.expression = "${modelQueryExpression.expression} AND #${entry.key} = :${entry.key}" )
+          $util.qr($modelQueryExpression.expressionNames.put("#${entry.key}", $entry.key))
+          $util.qr($modelQueryExpression.expressionValues.put(":${entry.key}", $util.dynamodb.toDynamoDB($entry.value)))
+        #end
+        $util.qr($ctx.stash.put("modelQueryExpression", $modelQueryExpression))
+        #set( $isAuthorized = true )
+      #end
+    #end
+  #end
+#end
+#if( !$isAuthorized && $util.isNull($ctx.stash.authFilter) )
+$util.unauthorized()
+#end
+$util.toJson({"version":"2018-05-29","payload":{}})
+## [End] Authorization Steps. **

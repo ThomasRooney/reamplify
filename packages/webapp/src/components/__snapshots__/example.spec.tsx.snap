@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+      "flexFlow": "column",
+      "height": "100%",
+      "width": "100%",
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "alignItems": "center",
+        "display": "flex",
+        "flex": "1 1 auto",
+        "flexDirection": "column",
+        "flexGrow": 1,
+        "justifyContent": "center",
+        "padding": "3rem",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "width": "400px",
+        }
+      }
+    >
+      <span
+        className="sc-bczRLJ lafqlb"
+      >
+        <span
+          className="sc-gsnTZi dLeiNU"
+        />
+      </span>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,13 @@
+{
+  "name": "Amplify Generated Schema",
+  "projects": {
+    "generated": {
+      "includes": ["packages/schema/appsync-schema-extensions.graphql","packages/schema/appsync/schema.graphql", "packages/schema/lib/graphql/*.ts"],
+      "excludes": ["packages/schema/schema.graphql"]
+    },
+    "user": {
+      "includes": ["packages/schema/amplify-schema-extensions.graphql","packages/schema/schema.graphql"],
+      "excludes": ["packages/schema/src/*", "packages/schema/appsync/schema.graphql", "packages/schema/lib/graphql/*.ts"]
+    }
+  }
+}

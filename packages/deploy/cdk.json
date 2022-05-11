@@ -1,0 +1,8 @@
+{
+  "context": {
+  },
+  "watch": {
+    "include": ["lib/**", "bin/**"]
+  },
+  "plugin": []
+}

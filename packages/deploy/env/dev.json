@@ -1,0 +1,17 @@
+{
+  "aws_project_region": "eu-west-2",
+  "aws_appsync_graphqlEndpoint": "https://qp3ku72p4vgudmpukp5vvzclby.appsync-api.eu-west-2.amazonaws.com/graphql",
+  "aws_appsync_region": "eu-west-2",
+  "aws_appsync_authenticationType": "AMAZON_COGNITO_USER_POOLS",
+  "aws_cognito_identity_pool_id": "eu-west-2:d9f1d28e-1043-45b1-84ca-58fd127428e3",
+  "aws_cognito_identity_pool_provider": "cognito-idp.eu-west-2.amazonaws.com/eu-west-2_53gkPBE5h",
+  "aws_cognito_region": "eu-west-2",
+  "aws_cognito_domain": "https://auth.dev.reamplify.io",
+  "aws_cognito_scope": "aws.cognito.signin.user.admin,email,openid,phone,profile",
+  "aws_user_pools_id": "eu-west-2_53gkPBE5h",
+  "aws_user_pools_web_client_id": "19eas0i8gujcp3fa2rf4ph7lbb",
+  "aws_user_files_s3_bucket": "user.dev.805337131662.eu-west-2.reamplify.io",
+  "aws_user_files_s3_bucket_region": "eu-west-2",
+  "aws_mandatory_sign_in": "enable",
+  "aws_webapp_url": "dev.reamplify.io"
+}

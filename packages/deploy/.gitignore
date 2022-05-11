@@ -1,0 +1,12 @@
+./**/*.js
+*.d.ts
+node_modules
+
+lambda.out
+# CDK asset staging directory
+.cdk.staging
+cdk.out
+
+# Appsync working directory
+appsync
+stack.json

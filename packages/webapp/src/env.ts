@@ -1,0 +1,17 @@
+export const aws_amazon_client_id = process.env.REACT_APP_aws_amazon_client_id!;
+export const aws_appsync_authenticationType = process.env.REACT_APP_aws_appsync_authenticationType!;
+export const aws_cognito_identity_pool_provider = process.env.REACT_APP_aws_cognito_identity_pool_provider!;
+export const aws_user_pools_web_client_id = process.env.REACT_APP_aws_user_pools_web_client_id!;
+export const aws_user_files_s3_bucket_region = process.env.REACT_APP_aws_user_files_s3_bucket_region!;
+export const aws_appsync_region = process.env.REACT_APP_aws_appsync_region!;
+export const aws_user_pools_id = process.env.REACT_APP_aws_user_pools_id!;
+export const aws_cognito_domain = process.env.REACT_APP_aws_cognito_domain!;
+export const aws_webapp_url = process.env.REACT_APP_aws_webapp_url!;
+export const aws_cognito_scope = process.env.REACT_APP_aws_cognito_scope!;
+export const aws_mandatory_sign_in = process.env.REACT_APP_aws_mandatory_sign_in!;
+export const aws_browser_api_endpoint = process.env.REACT_APP_aws_browser_api_endpoint!;
+export const aws_project_region = process.env.REACT_APP_aws_project_region!;
+export const aws_appsync_graphqlEndpoint = process.env.REACT_APP_aws_appsync_graphqlEndpoint!;
+export const aws_cognito_region = process.env.REACT_APP_aws_cognito_region!;
+export const aws_user_files_s3_bucket = process.env.REACT_APP_aws_user_files_s3_bucket!;
+export const aws_cognito_identity_pool_id = process.env.REACT_APP_aws_cognito_identity_pool_id!;

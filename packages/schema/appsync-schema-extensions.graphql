@@ -1,0 +1,10 @@
+scalar AWSDateTime # An extended ISO 8601 date and time string in the format YYYY-MM-DDThh:mm:ss.sssZ.
+scalar AWSDate # An extended ISO 8601 date string in the format YYYY-MM-DD.
+scalar AWSTime # An extended ISO 8601 time string in the format hh:mm:ss.sss.
+scalar AWSTimestamp # An integer value representing the number of seconds before or after 1970-01-01-T00:00Z.
+scalar AWSEmail # An email address in the format local-part@domain-part as defined by RFC 822.
+scalar AWSURL # A URL as defined by RFC 1738. For example, https://www.amazon.com/dp/B000NZW3KC/ or mailto:example@example.com. URLs must contain a schema (http, mailto) and can't contain two forward slashes (//) in the path part.
+
+directive @aws_iam on OBJECT | FIELD_DEFINITION
+directive @aws_cognito_user_pools on OBJECT | FIELD_DEFINITION
+directive @aws_subscribe(mutations: [String!]!) on FIELD_DEFINITION

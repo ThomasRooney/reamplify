@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "resolveJsonModule": true,
+    "lib": [
+      "ES2016"
+    ],
+  },
+  "include": ["lib", "bin", "scripts"]
+}

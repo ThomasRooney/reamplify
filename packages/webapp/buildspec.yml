@@ -1,0 +1,46 @@
+version: 0.2
+
+env:
+  shell: bash
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14
+    commands:
+      - n 16
+      - cd packages/webapp/
+  pre_build:
+    on-failure: ABORT
+    commands:
+      - set -e -o pipefail
+      - aws --version
+      - env
+      - npm install -g corepack
+      - yarn --version
+      - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
+      - COMMIT_TAG=${COMMIT_HASH:=latest}
+      - SOURCE_TAG=$(( find . -type f -print0 ; find ../schema -type f -print0 ) | sort -z | ( xargs -0 sha1sum ; echo "$DEPLOY_CONFIG" ) | sha1sum | awk '{ print $1 }')
+      - PACKAGE_VERSION=$(cat package.json | jq '.version')
+      - echo $SOURCE_TAG
+      - aws s3 cp s3://$BUCKET_NAME/.version . || rm -f .version && touch .version
+      - PREVIOUS_SOURCE_TAG=$(cat .version)
+      - echo $PREVIOUS_SOURCE_TAG
+      - SHOULD_BUILD=$(test "$PREVIOUS_SOURCE_TAG" = "$SOURCE_TAG" && echo "0" || echo "1")
+      - echo $SHOULD_BUILD
+  build:
+    on-failure: ABORT
+    commands:
+      - |-
+        set -eox pipefail
+        if [[ $SHOULD_BUILD == "1" ]]; then
+          yarn install --immutable
+          yarn build
+          echo $SOURCE_TAG > build/.version
+          echo $PACKAGE_VERSION > build/.package.version
+        else
+          echo "Skipping build as no change in source content: $PREVIOUS_SOURCE_TAG == $SOURCE_TAG"
+        fi
+artifacts:
+  files:
+    - '**/*'
+  base-directory: 'packages/webapp/build/'

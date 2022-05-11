@@ -1,0 +1,87 @@
+scalar AWSDateTime # An extended ISO 8601 date and time string in the format YYYY-MM-DDThh:mm:ss.sssZ.
+scalar AWSDate # An extended ISO 8601 date string in the format YYYY-MM-DD.
+scalar AWSTime # An extended ISO 8601 time string in the format hh:mm:ss.sss.
+scalar AWSTimestamp # An integer value representing the number of seconds before or after 1970-01-01-T00:00Z.
+scalar AWSEmail # An email address in the format local-part@domain-part as defined by RFC 822.
+scalar AWSURL # A URL as defined by RFC 1738. For example, https://www.amazon.com/dp/B000NZW3KC/ or mailto:example@example.com. URLs must contain a schema (http, mailto) and can't contain two forward slashes (//) in the path part.
+
+directive @model(
+    queries: ModelQueryMap
+    mutations: ModelMutationMap
+    subscriptions: ModelSubscriptionMap
+    timestamps: TimestampConfiguration
+) on OBJECT
+input ModelMutationMap {
+    create: String
+    update: String
+    delete: String
+}
+input ModelQueryMap {
+    get: String
+    list: String
+}
+input ModelSubscriptionMap {
+    onCreate: [String]
+    onUpdate: [String]
+    onDelete: [String]
+    level: ModelSubscriptionLevel
+}
+enum ModelSubscriptionLevel {
+    off
+    public
+    on
+}
+input TimestampConfiguration {
+    createdAt: String
+    updatedAt: String
+}
+
+# When applied to a type, augments the application with
+# owner and group-based authorization rules.
+directive @auth(rules: [AuthRule!]!) on OBJECT | FIELD_DEFINITION
+input AuthRule {
+    allow: AuthStrategy!
+    provider: AuthProvider
+    identityClaim: String
+    groupClaim: String
+    ownerField: String
+    groupsField: String
+    groups: [String]
+    operations: [ModelOperation]
+}
+enum AuthStrategy {
+    owner
+    groups
+    private
+    public
+    custom
+}
+enum AuthProvider {
+    apiKey
+    iam
+    oidc
+    userPools
+    function
+}
+enum ModelOperation {
+    create
+    update
+    delete
+    read
+}
+
+
+directive @function(name: String!, region: String) repeatable on FIELD_DEFINITION
+
+directive @hasOne(fields: [String!]) on FIELD_DEFINITION
+
+directive @hasMany(indexName: String, fields: [String!], limit: Int = 100) on FIELD_DEFINITION
+
+directive @belongsTo(fields: [String!]) on FIELD_DEFINITION
+
+directive @manyToMany(relationName: String!, limit: Int = 100) on FIELD_DEFINITION
+
+directive @primaryKey(sortKeyFields: [String]) on FIELD_DEFINITION
+
+directive @key(fields: [String!]!, name: String, queryField: String) repeatable on OBJECT
+directive @index(name: String!, sortKeyFields: [String], queryField: String) repeatable on FIELD_DEFINITION

@@ -1,0 +1,1191 @@
+{
+  "resolvers": {
+    "User": [
+      {
+        "fieldName": "getUser",
+        "typeName": "Query",
+        "pipelineFunctions": [
+          "QuerygetUserpreAuth0Function",
+          "QuerygetUserauth0Function",
+          "QuerygetUserpostAuth0Function",
+          "QueryGetUserDataResolverFn"
+        ],
+        "requestMappingTemplateFilePath": [
+          "resolvers",
+          "Query.getUser.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "resolvers",
+          "Query.getUser.res.vtl"
+        ],
+        "dataSourceKind": "PIPELINE"
+      },
+      {
+        "fieldName": "listUsers",
+        "typeName": "Query",
+        "pipelineFunctions": [
+          "QuerylistUserspreAuth0Function",
+          "QuerylistUsersauth0Function",
+          "QuerylistUserspostAuth0Function",
+          "QueryListUsersDataResolverFn"
+        ],
+        "requestMappingTemplateFilePath": [
+          "resolvers",
+          "Query.listUsers.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "resolvers",
+          "Query.listUsers.res.vtl"
+        ],
+        "dataSourceKind": "PIPELINE"
+      },
+      {
+        "fieldName": "createUser",
+        "typeName": "Mutation",
+        "pipelineFunctions": [
+          "MutationcreateUserinit0Function",
+          "MutationcreateUserpreAuth0Function",
+          "MutationcreateUserauth0Function",
+          "MutationcreateUserpostAuth0Function",
+          "MutationCreateUserDataResolverFn"
+        ],
+        "requestMappingTemplateFilePath": [
+          "resolvers",
+          "Mutation.createUser.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "resolvers",
+          "Mutation.createUser.res.vtl"
+        ],
+        "dataSourceKind": "PIPELINE"
+      },
+      {
+        "fieldName": "updateUser",
+        "typeName": "Mutation",
+        "pipelineFunctions": [
+          "MutationupdateUserinit0Function",
+          "MutationupdateUserpreAuth0Function",
+          "MutationupdateUserauth0Function",
+          "MutationupdateUserpostAuth0Function",
+          "MutationUpdateUserDataResolverFn"
+        ],
+        "requestMappingTemplateFilePath": [
+          "resolvers",
+          "Mutation.updateUser.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "resolvers",
+          "Mutation.updateUser.res.vtl"
+        ],
+        "dataSourceKind": "PIPELINE"
+      },
+      {
+        "fieldName": "deleteUser",
+        "typeName": "Mutation",
+        "pipelineFunctions": [
+          "MutationdeleteUserpreAuth0Function",
+          "MutationdeleteUserauth0Function",
+          "MutationdeleteUserpostAuth0Function",
+          "MutationDeleteUserDataResolverFn"
+        ],
+        "requestMappingTemplateFilePath": [
+          "resolvers",
+          "Mutation.deleteUser.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "resolvers",
+          "Mutation.deleteUser.res.vtl"
+        ],
+        "dataSourceKind": "PIPELINE"
+      },
+      {
+        "fieldName": "onCreateUser",
+        "typeName": "Subscription",
+        "pipelineFunctions": [
+          "SubscriptiononCreateUserauth0Function",
+          "SubscriptiononCreateUserpostAuth0Function",
+          "SubscriptionOnCreateUserDataResolverFn"
+        ],
+        "requestMappingTemplateFilePath": [
+          "resolvers",
+          "Subscription.onCreateUser.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "resolvers",
+          "Subscription.onCreateUser.res.vtl"
+        ],
+        "dataSourceKind": "PIPELINE"
+      },
+      {
+        "fieldName": "onUpdateUser",
+        "typeName": "Subscription",
+        "pipelineFunctions": [
+          "SubscriptiononUpdateUserauth0Function",
+          "SubscriptiononUpdateUserpostAuth0Function",
+          "SubscriptionOnUpdateUserDataResolverFn"
+        ],
+        "requestMappingTemplateFilePath": [
+          "resolvers",
+          "Subscription.onUpdateUser.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "resolvers",
+          "Subscription.onUpdateUser.res.vtl"
+        ],
+        "dataSourceKind": "PIPELINE"
+      },
+      {
+        "fieldName": "onDeleteUser",
+        "typeName": "Subscription",
+        "pipelineFunctions": [
+          "SubscriptiononDeleteUserauth0Function",
+          "SubscriptiononDeleteUserpostAuth0Function",
+          "SubscriptionOnDeleteUserDataResolverFn"
+        ],
+        "requestMappingTemplateFilePath": [
+          "resolvers",
+          "Subscription.onDeleteUser.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "resolvers",
+          "Subscription.onDeleteUser.res.vtl"
+        ],
+        "dataSourceKind": "PIPELINE"
+      },
+      {
+        "fieldName": "userByEmail",
+        "typeName": "Query",
+        "pipelineFunctions": [
+          "QueryuserByEmailauth0Function",
+          "QueryuserByEmailpostAuth0Function",
+          "QueryUserByEmailDataResolverFn"
+        ],
+        "requestMappingTemplateFilePath": [
+          "resolvers",
+          "Query.userByEmail.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "resolvers",
+          "Query.userByEmail.res.vtl"
+        ],
+        "dataSourceKind": "PIPELINE"
+      }
+    ],
+    "TodoItem": [
+      {
+        "fieldName": "getTodoItem",
+        "typeName": "Query",
+        "pipelineFunctions": [
+          "QuerygetTodoItempreAuth0Function",
+          "QuerygetTodoItemauth0Function",
+          "QuerygetTodoItempostAuth0Function",
+          "QueryGetTodoItemDataResolverFn"
+        ],
+        "requestMappingTemplateFilePath": [
+          "resolvers",
+          "Query.getTodoItem.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "resolvers",
+          "Query.getTodoItem.res.vtl"
+        ],
+        "dataSourceKind": "PIPELINE"
+      },
+      {
+        "fieldName": "listTodoItems",
+        "typeName": "Query",
+        "pipelineFunctions": [
+          "QuerylistTodoItemspreAuth0Function",
+          "QuerylistTodoItemsauth0Function",
+          "QuerylistTodoItemspostAuth0Function",
+          "QueryListTodoItemsDataResolverFn"
+        ],
+        "requestMappingTemplateFilePath": [
+          "resolvers",
+          "Query.listTodoItems.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "resolvers",
+          "Query.listTodoItems.res.vtl"
+        ],
+        "dataSourceKind": "PIPELINE"
+      },
+      {
+        "fieldName": "createTodoItem",
+        "typeName": "Mutation",
+        "pipelineFunctions": [
+          "MutationcreateTodoIteminit0Function",
+          "MutationcreateTodoItempreAuth0Function",
+          "MutationcreateTodoItemauth0Function",
+          "MutationcreateTodoItempostAuth0Function",
+          "MutationCreateTodoItemDataResolverFn"
+        ],
+        "requestMappingTemplateFilePath": [
+          "resolvers",
+          "Mutation.createTodoItem.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "resolvers",
+          "Mutation.createTodoItem.res.vtl"
+        ],
+        "dataSourceKind": "PIPELINE"
+      },
+      {
+        "fieldName": "updateTodoItem",
+        "typeName": "Mutation",
+        "pipelineFunctions": [
+          "MutationupdateTodoIteminit0Function",
+          "MutationupdateTodoItempreAuth0Function",
+          "MutationupdateTodoItemauth0Function",
+          "MutationupdateTodoItempostAuth0Function",
+          "MutationUpdateTodoItemDataResolverFn"
+        ],
+        "requestMappingTemplateFilePath": [
+          "resolvers",
+          "Mutation.updateTodoItem.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "resolvers",
+          "Mutation.updateTodoItem.res.vtl"
+        ],
+        "dataSourceKind": "PIPELINE"
+      },
+      {
+        "fieldName": "deleteTodoItem",
+        "typeName": "Mutation",
+        "pipelineFunctions": [
+          "MutationdeleteTodoItempreAuth0Function",
+          "MutationdeleteTodoItemauth0Function",
+          "MutationdeleteTodoItempostAuth0Function",
+          "MutationDeleteTodoItemDataResolverFn"
+        ],
+        "requestMappingTemplateFilePath": [
+          "resolvers",
+          "Mutation.deleteTodoItem.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "resolvers",
+          "Mutation.deleteTodoItem.res.vtl"
+        ],
+        "dataSourceKind": "PIPELINE"
+      },
+      {
+        "fieldName": "onCreateTodoItem",
+        "typeName": "Subscription",
+        "pipelineFunctions": [
+          "SubscriptiononCreateTodoItemauth0Function",
+          "SubscriptiononCreateTodoItempostAuth0Function",
+          "SubscriptionOnCreateTodoItemDataResolverFn"
+        ],
+        "requestMappingTemplateFilePath": [
+          "resolvers",
+          "Subscription.onCreateTodoItem.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "resolvers",
+          "Subscription.onCreateTodoItem.res.vtl"
+        ],
+        "dataSourceKind": "PIPELINE"
+      },
+      {
+        "fieldName": "onUpdateTodoItem",
+        "typeName": "Subscription",
+        "pipelineFunctions": [
+          "SubscriptiononUpdateTodoItemauth0Function",
+          "SubscriptiononUpdateTodoItempostAuth0Function",
+          "SubscriptionOnUpdateTodoItemDataResolverFn"
+        ],
+        "requestMappingTemplateFilePath": [
+          "resolvers",
+          "Subscription.onUpdateTodoItem.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "resolvers",
+          "Subscription.onUpdateTodoItem.res.vtl"
+        ],
+        "dataSourceKind": "PIPELINE"
+      },
+      {
+        "fieldName": "onDeleteTodoItem",
+        "typeName": "Subscription",
+        "pipelineFunctions": [
+          "SubscriptiononDeleteTodoItemauth0Function",
+          "SubscriptiononDeleteTodoItempostAuth0Function",
+          "SubscriptionOnDeleteTodoItemDataResolverFn"
+        ],
+        "requestMappingTemplateFilePath": [
+          "resolvers",
+          "Subscription.onDeleteTodoItem.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "resolvers",
+          "Subscription.onDeleteTodoItem.res.vtl"
+        ],
+        "dataSourceKind": "PIPELINE"
+      },
+      {
+        "fieldName": "todoItemByOwner",
+        "typeName": "Query",
+        "pipelineFunctions": [
+          "QuerytodoItemByOwnerauth0Function",
+          "QuerytodoItemByOwnerpostAuth0Function",
+          "QueryTodoItemByOwnerDataResolverFn"
+        ],
+        "requestMappingTemplateFilePath": [
+          "resolvers",
+          "Query.todoItemByOwner.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "resolvers",
+          "Query.todoItemByOwner.res.vtl"
+        ],
+        "dataSourceKind": "PIPELINE"
+      }
+    ]
+  },
+  "functionNameToDataSourceName": {
+    "deleteItemFn": "DeleteItemFnLambdaDataSource"
+  },
+  "tableDatasources": {
+    "User": "UserTable",
+    "TodoItem": "TodoItemTable"
+  },
+  "pipelineFunctions": {
+    "User": {
+      "QuerygetUserpreAuth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Query.getUser.preAuth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Query.getUser.preAuth.1.res.vtl"
+        ]
+      },
+      "QuerygetUserauth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Query.getUser.auth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Query.getUser.auth.1.res.vtl"
+        ]
+      },
+      "QuerygetUserpostAuth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Query.getUser.postAuth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Query.getUser.postAuth.1.res.vtl"
+        ]
+      },
+      "QueryGetUserDataResolverFn": {
+        "dataSourceName": "UserTable",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Query.getUser.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Query.getUser.res.vtl"
+        ]
+      },
+      "QuerylistUserspreAuth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Query.listUsers.preAuth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Query.listUsers.preAuth.1.res.vtl"
+        ]
+      },
+      "QuerylistUsersauth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Query.listUsers.auth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Query.listUsers.auth.1.res.vtl"
+        ]
+      },
+      "QuerylistUserspostAuth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Query.listUsers.postAuth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Query.listUsers.postAuth.1.res.vtl"
+        ]
+      },
+      "QueryListUsersDataResolverFn": {
+        "dataSourceName": "UserTable",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Query.listUsers.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Query.listUsers.res.vtl"
+        ]
+      },
+      "MutationcreateUserinit0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.createUser.init.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.createUser.init.1.res.vtl"
+        ]
+      },
+      "MutationcreateUserpreAuth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.createUser.preAuth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.createUser.preAuth.1.res.vtl"
+        ]
+      },
+      "MutationcreateUserauth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.createUser.auth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.createUser.auth.1.res.vtl"
+        ]
+      },
+      "MutationcreateUserpostAuth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.createUser.postAuth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.createUser.postAuth.1.res.vtl"
+        ]
+      },
+      "MutationCreateUserDataResolverFn": {
+        "dataSourceName": "UserTable",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.createUser.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.createUser.res.vtl"
+        ]
+      },
+      "MutationupdateUserinit0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.updateUser.init.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.updateUser.init.1.res.vtl"
+        ]
+      },
+      "MutationupdateUserpreAuth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.updateUser.preAuth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.updateUser.preAuth.1.res.vtl"
+        ]
+      },
+      "MutationupdateUserauth0Function": {
+        "dataSourceName": "UserTable",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.updateUser.auth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.updateUser.auth.1.res.vtl"
+        ]
+      },
+      "MutationupdateUserpostAuth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.updateUser.postAuth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.updateUser.postAuth.1.res.vtl"
+        ]
+      },
+      "MutationUpdateUserDataResolverFn": {
+        "dataSourceName": "UserTable",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.updateUser.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.updateUser.res.vtl"
+        ]
+      },
+      "MutationdeleteUserpreAuth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.deleteUser.preAuth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.deleteUser.preAuth.1.res.vtl"
+        ]
+      },
+      "MutationdeleteUserauth0Function": {
+        "dataSourceName": "UserTable",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.deleteUser.auth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.deleteUser.auth.1.res.vtl"
+        ]
+      },
+      "MutationdeleteUserpostAuth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.deleteUser.postAuth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.deleteUser.postAuth.1.res.vtl"
+        ]
+      },
+      "MutationDeleteUserDataResolverFn": {
+        "dataSourceName": "UserTable",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.deleteUser.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.deleteUser.res.vtl"
+        ]
+      },
+      "SubscriptiononCreateUserauth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Subscription.onCreateUser.auth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Subscription.onCreateUser.auth.1.res.vtl"
+        ]
+      },
+      "SubscriptiononCreateUserpostAuth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Subscription.onCreateUser.postAuth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Subscription.onCreateUser.postAuth.1.res.vtl"
+        ]
+      },
+      "SubscriptionOnCreateUserDataResolverFn": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Subscription.onCreateUser.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Subscription.onCreateUser.res.vtl"
+        ]
+      },
+      "SubscriptiononUpdateUserauth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Subscription.onUpdateUser.auth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Subscription.onUpdateUser.auth.1.res.vtl"
+        ]
+      },
+      "SubscriptiononUpdateUserpostAuth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Subscription.onUpdateUser.postAuth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Subscription.onUpdateUser.postAuth.1.res.vtl"
+        ]
+      },
+      "SubscriptionOnUpdateUserDataResolverFn": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Subscription.onUpdateUser.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Subscription.onUpdateUser.res.vtl"
+        ]
+      },
+      "SubscriptiononDeleteUserauth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Subscription.onDeleteUser.auth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Subscription.onDeleteUser.auth.1.res.vtl"
+        ]
+      },
+      "SubscriptiononDeleteUserpostAuth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Subscription.onDeleteUser.postAuth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Subscription.onDeleteUser.postAuth.1.res.vtl"
+        ]
+      },
+      "SubscriptionOnDeleteUserDataResolverFn": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Subscription.onDeleteUser.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Subscription.onDeleteUser.res.vtl"
+        ]
+      },
+      "QueryuserByEmailauth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "User.userByEmail.auth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "User.userByEmail.auth.1.res.vtl"
+        ]
+      },
+      "QueryuserByEmailpostAuth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Query.userByEmail.postAuth.1.res.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Query.userByEmail.postAuth.1.res.vtl"
+        ]
+      },
+      "QueryUserByEmailDataResolverFn": {
+        "dataSourceName": "UserTable",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Query.userByEmail.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Query.userByEmail.res.vtl"
+        ]
+      }
+    },
+    "TodoItem": {
+      "QuerygetTodoItempreAuth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Query.getTodoItem.preAuth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Query.getTodoItem.preAuth.1.res.vtl"
+        ]
+      },
+      "QuerygetTodoItemauth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Query.getTodoItem.auth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Query.getTodoItem.auth.1.res.vtl"
+        ]
+      },
+      "QuerygetTodoItempostAuth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Query.getTodoItem.postAuth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Query.getTodoItem.postAuth.1.res.vtl"
+        ]
+      },
+      "QueryGetTodoItemDataResolverFn": {
+        "dataSourceName": "TodoItemTable",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Query.getTodoItem.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Query.getTodoItem.res.vtl"
+        ]
+      },
+      "QuerylistTodoItemspreAuth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Query.listTodoItems.preAuth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Query.listTodoItems.preAuth.1.res.vtl"
+        ]
+      },
+      "QuerylistTodoItemsauth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Query.listTodoItems.auth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Query.listTodoItems.auth.1.res.vtl"
+        ]
+      },
+      "QuerylistTodoItemspostAuth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Query.listTodoItems.postAuth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Query.listTodoItems.postAuth.1.res.vtl"
+        ]
+      },
+      "QueryListTodoItemsDataResolverFn": {
+        "dataSourceName": "TodoItemTable",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Query.listTodoItems.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Query.listTodoItems.res.vtl"
+        ]
+      },
+      "MutationcreateTodoIteminit0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.createTodoItem.init.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.createTodoItem.init.1.res.vtl"
+        ]
+      },
+      "MutationcreateTodoItempreAuth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.createTodoItem.preAuth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.createTodoItem.preAuth.1.res.vtl"
+        ]
+      },
+      "MutationcreateTodoItemauth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.createTodoItem.auth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.createTodoItem.auth.1.res.vtl"
+        ]
+      },
+      "MutationcreateTodoItempostAuth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.createTodoItem.postAuth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.createTodoItem.postAuth.1.res.vtl"
+        ]
+      },
+      "MutationCreateTodoItemDataResolverFn": {
+        "dataSourceName": "TodoItemTable",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.createTodoItem.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.createTodoItem.res.vtl"
+        ]
+      },
+      "MutationupdateTodoIteminit0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.updateTodoItem.init.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.updateTodoItem.init.1.res.vtl"
+        ]
+      },
+      "MutationupdateTodoItempreAuth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.updateTodoItem.preAuth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.updateTodoItem.preAuth.1.res.vtl"
+        ]
+      },
+      "MutationupdateTodoItemauth0Function": {
+        "dataSourceName": "TodoItemTable",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.updateTodoItem.auth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.updateTodoItem.auth.1.res.vtl"
+        ]
+      },
+      "MutationupdateTodoItempostAuth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.updateTodoItem.postAuth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.updateTodoItem.postAuth.1.res.vtl"
+        ]
+      },
+      "MutationUpdateTodoItemDataResolverFn": {
+        "dataSourceName": "TodoItemTable",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.updateTodoItem.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.updateTodoItem.res.vtl"
+        ]
+      },
+      "MutationdeleteTodoItempreAuth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.deleteTodoItem.preAuth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.deleteTodoItem.preAuth.1.res.vtl"
+        ]
+      },
+      "MutationdeleteTodoItemauth0Function": {
+        "dataSourceName": "TodoItemTable",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.deleteTodoItem.auth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.deleteTodoItem.auth.1.res.vtl"
+        ]
+      },
+      "MutationdeleteTodoItempostAuth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.deleteTodoItem.postAuth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.deleteTodoItem.postAuth.1.res.vtl"
+        ]
+      },
+      "MutationDeleteTodoItemDataResolverFn": {
+        "dataSourceName": "TodoItemTable",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.deleteTodoItem.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Mutation.deleteTodoItem.res.vtl"
+        ]
+      },
+      "SubscriptiononCreateTodoItemauth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Subscription.onCreateTodoItem.auth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Subscription.onCreateTodoItem.auth.1.res.vtl"
+        ]
+      },
+      "SubscriptiononCreateTodoItempostAuth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Subscription.onCreateTodoItem.postAuth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Subscription.onCreateTodoItem.postAuth.1.res.vtl"
+        ]
+      },
+      "SubscriptionOnCreateTodoItemDataResolverFn": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Subscription.onCreateTodoItem.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Subscription.onCreateTodoItem.res.vtl"
+        ]
+      },
+      "SubscriptiononUpdateTodoItemauth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Subscription.onUpdateTodoItem.auth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Subscription.onUpdateTodoItem.auth.1.res.vtl"
+        ]
+      },
+      "SubscriptiononUpdateTodoItempostAuth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Subscription.onUpdateTodoItem.postAuth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Subscription.onUpdateTodoItem.postAuth.1.res.vtl"
+        ]
+      },
+      "SubscriptionOnUpdateTodoItemDataResolverFn": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Subscription.onUpdateTodoItem.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Subscription.onUpdateTodoItem.res.vtl"
+        ]
+      },
+      "SubscriptiononDeleteTodoItemauth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Subscription.onDeleteTodoItem.auth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Subscription.onDeleteTodoItem.auth.1.res.vtl"
+        ]
+      },
+      "SubscriptiononDeleteTodoItempostAuth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Subscription.onDeleteTodoItem.postAuth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Subscription.onDeleteTodoItem.postAuth.1.res.vtl"
+        ]
+      },
+      "SubscriptionOnDeleteTodoItemDataResolverFn": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Subscription.onDeleteTodoItem.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Subscription.onDeleteTodoItem.res.vtl"
+        ]
+      },
+      "QuerytodoItemByOwnerauth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "TodoItem.todoItemByOwner.auth.1.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "TodoItem.todoItemByOwner.auth.1.res.vtl"
+        ]
+      },
+      "QuerytodoItemByOwnerpostAuth0Function": {
+        "dataSourceName": "__NONE_DS__",
+        "dataSourceKind": "NONE",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Query.todoItemByOwner.postAuth.1.res.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Query.todoItemByOwner.postAuth.1.res.vtl"
+        ]
+      },
+      "QueryTodoItemByOwnerDataResolverFn": {
+        "dataSourceName": "TodoItemTable",
+        "requestMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Query.todoItemByOwner.req.vtl"
+        ],
+        "responseMappingTemplateFilePath": [
+          "pipelineFunctions",
+          "Query.todoItemByOwner.res.vtl"
+        ]
+      }
+    }
+  },
+  "additionalResolvers": [
+    {
+      "fieldName": "deleteItem",
+      "typeName": "Mutation",
+      "pipelineFunctions": [
+        "InvokeDeleteItemFnLambdaDataSource"
+      ],
+      "requestMappingTemplateFilePath": [
+        "resolvers",
+        "Mutation.deleteItem.req.vtl"
+      ],
+      "responseMappingTemplateFilePath": [
+        "resolvers",
+        "Mutation.deleteItem.res.vtl"
+      ],
+      "dataSourceKind": "PIPELINE"
+    }
+  ],
+  "additionalPipelineFunctions": {
+    "InvokeDeleteItemFnLambdaDataSource": {
+      "dataSourceName": "DeleteItemFnLambdaDataSource",
+      "dataSourceKind": "FUNCTION",
+      "requestMappingTemplateFilePath": [
+        "pipelineFunctions",
+        "InvokeDeleteItemFnLambdaDataSource.req.vtl"
+      ],
+      "responseMappingTemplateFilePath": [
+        "pipelineFunctions",
+        "InvokeDeleteItemFnLambdaDataSource.res.vtl"
+      ]
+    }
+  }
+}

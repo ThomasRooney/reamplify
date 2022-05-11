@@ -1,0 +1,238 @@
+
+type User @aws_iam @aws_cognito_user_pools {
+  id: ID!
+  email: String!
+  preferred_name: String!
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}
+
+type Mutation {
+  deleteItem(todoItemID: ID!): TodoItem
+  createUser(input: CreateUserInput!, condition: ModelUserConditionInput): User @aws_iam
+  updateUser(input: UpdateUserInput!, condition: ModelUserConditionInput): User @aws_iam @aws_cognito_user_pools
+  deleteUser(input: DeleteUserInput!, condition: ModelUserConditionInput): User @aws_iam
+  createTodoItem(input: CreateTodoItemInput!, condition: ModelTodoItemConditionInput): TodoItem @aws_iam @aws_cognito_user_pools
+  updateTodoItem(input: UpdateTodoItemInput!, condition: ModelTodoItemConditionInput): TodoItem @aws_iam @aws_cognito_user_pools
+  deleteTodoItem(input: DeleteTodoItemInput!, condition: ModelTodoItemConditionInput): TodoItem @aws_iam
+}
+
+type TodoItem @aws_iam @aws_cognito_user_pools {
+  id: ID!
+  description: String!
+  done: Boolean!
+  rank: String!
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+  owner: ID
+}
+
+input ModelStringInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelIntInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelFloatInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  between: [Float]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelBooleanInput {
+  ne: Boolean
+  eq: Boolean
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelIDInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+enum ModelAttributeTypes {
+  binary
+  binarySet
+  bool
+  list
+  map
+  number
+  numberSet
+  string
+  stringSet
+  _null
+}
+
+input ModelSizeInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+}
+
+enum ModelSortDirection {
+  ASC
+  DESC
+}
+
+type ModelUserConnection @aws_iam @aws_cognito_user_pools {
+  items: [User]!
+  nextToken: String
+}
+
+input ModelUserFilterInput {
+  id: ModelIDInput
+  email: ModelStringInput
+  preferred_name: ModelStringInput
+  createdAt: ModelStringInput
+  updatedAt: ModelStringInput
+  and: [ModelUserFilterInput]
+  or: [ModelUserFilterInput]
+  not: ModelUserFilterInput
+}
+
+type Query {
+  getUser(id: ID!): User @aws_iam @aws_cognito_user_pools
+  listUsers(id: ID, filter: ModelUserFilterInput, limit: Int, nextToken: String, sortDirection: ModelSortDirection): ModelUserConnection @aws_iam @aws_cognito_user_pools
+  userByEmail(email: String!, sortDirection: ModelSortDirection, filter: ModelUserFilterInput, limit: Int, nextToken: String): ModelUserConnection @aws_iam @aws_cognito_user_pools
+  getTodoItem(id: ID!): TodoItem @aws_iam @aws_cognito_user_pools
+  listTodoItems(id: ID, filter: ModelTodoItemFilterInput, limit: Int, nextToken: String, sortDirection: ModelSortDirection): ModelTodoItemConnection @aws_iam @aws_cognito_user_pools
+  todoItemByOwner(owner: ID!, sortDirection: ModelSortDirection, filter: ModelTodoItemFilterInput, limit: Int, nextToken: String): ModelTodoItemConnection @aws_iam @aws_cognito_user_pools
+}
+
+input ModelUserConditionInput {
+  email: ModelStringInput
+  preferred_name: ModelStringInput
+  createdAt: ModelStringInput
+  updatedAt: ModelStringInput
+  and: [ModelUserConditionInput]
+  or: [ModelUserConditionInput]
+  not: ModelUserConditionInput
+}
+
+input CreateUserInput {
+  id: ID
+  email: String!
+  preferred_name: String!
+  createdAt: AWSDateTime
+  updatedAt: AWSDateTime
+}
+
+input UpdateUserInput {
+  id: ID!
+  email: String
+  preferred_name: String
+  createdAt: AWSDateTime
+  updatedAt: AWSDateTime
+}
+
+input DeleteUserInput {
+  id: ID!
+}
+
+type Subscription {
+  onCreateUser(id: String): User @aws_subscribe(mutations: ["createUser"]) @aws_iam @aws_cognito_user_pools
+  onUpdateUser(id: String): User @aws_subscribe(mutations: ["updateUser"]) @aws_iam @aws_cognito_user_pools
+  onDeleteUser(id: String): User @aws_subscribe(mutations: ["deleteUser"]) @aws_iam @aws_cognito_user_pools
+  onCreateTodoItem(owner: String): TodoItem @aws_subscribe(mutations: ["createTodoItem"]) @aws_iam @aws_cognito_user_pools
+  onUpdateTodoItem(owner: String): TodoItem @aws_subscribe(mutations: ["updateTodoItem"]) @aws_iam @aws_cognito_user_pools
+  onDeleteTodoItem(owner: String): TodoItem @aws_subscribe(mutations: ["deleteTodoItem"]) @aws_iam @aws_cognito_user_pools
+}
+
+type ModelTodoItemConnection @aws_iam @aws_cognito_user_pools {
+  items: [TodoItem]!
+  nextToken: String
+}
+
+input ModelTodoItemFilterInput {
+  id: ModelIDInput
+  description: ModelStringInput
+  done: ModelBooleanInput
+  rank: ModelStringInput
+  createdAt: ModelStringInput
+  updatedAt: ModelStringInput
+  owner: ModelIDInput
+  and: [ModelTodoItemFilterInput]
+  or: [ModelTodoItemFilterInput]
+  not: ModelTodoItemFilterInput
+}
+
+input ModelTodoItemConditionInput {
+  description: ModelStringInput
+  done: ModelBooleanInput
+  rank: ModelStringInput
+  createdAt: ModelStringInput
+  updatedAt: ModelStringInput
+  owner: ModelIDInput
+  and: [ModelTodoItemConditionInput]
+  or: [ModelTodoItemConditionInput]
+  not: ModelTodoItemConditionInput
+}
+
+input CreateTodoItemInput {
+  id: ID
+  description: String!
+  done: Boolean!
+  rank: String!
+  createdAt: AWSDateTime
+  updatedAt: AWSDateTime
+  owner: ID
+}
+
+input UpdateTodoItemInput {
+  id: ID!
+  description: String
+  done: Boolean
+  rank: String
+  createdAt: AWSDateTime
+  updatedAt: AWSDateTime
+  owner: ID
+}
+
+input DeleteTodoItemInput {
+  id: ID!
+}
+

@@ -1,0 +1,44 @@
+## [Start] Authorization Steps. **
+$util.qr($ctx.stash.put("hasAuth", true))
+#set( $isAuthorized = false )
+#set( $primaryFieldMap = {} )
+#if( $util.authType() == "IAM Authorization" )
+  #set( $adminRoles = [""] )
+  #foreach( $adminRole in $adminRoles )
+    #if( $ctx.identity.userArn.contains($adminRole) && $ctx.identity.userArn != $ctx.stash.authRole && $ctx.identity.userArn != $ctx.stash.unauthRole )
+      #return($util.toJson({}))
+    #end
+  #end
+  #if( !$isAuthorized )
+    #if( $ctx.identity.userArn == $ctx.stash.authRole )
+      #set( $isAuthorized = true )
+    #end
+  #end
+#end
+#if( $util.authType() == "User Pool Authorization" )
+  #if( !$util.isNull($ctx.args.owner) )
+    #set( $ownerClaim = $util.defaultIfNull($ctx.identity.claims.get("username"), $util.defaultIfNull($ctx.identity.claims.get("cognito:username"), "___xamznone____")) )
+    #if( $util.isString($ctx.args.owner) )
+      #set( $ownerCondition = ($ownerClaim == $ctx.args.owner) )
+    #else
+      #set( $ownerCondition = ($ownerClaim == $util.defaultIfNull($ctx.args.owner.get("eq"), "___xamznone____")) )
+    #end
+    #if( $ownerCondition )
+      #set( $isAuthorized = true )
+      $util.qr($ctx.stash.put("authFilter", null))
+    #end
+  #else
+    $util.qr($primaryFieldMap.put("owner", $util.defaultIfNull($ctx.identity.claims.get("username"), $util.defaultIfNull($ctx.identity.claims.get("cognito:username"), "___xamznone____"))))
+  #end
+  #if( !$isAuthorized && $util.isNull($ctx.stash.authFilter) && !$primaryFieldMap.isEmpty() )
+    #foreach( $entry in $primaryFieldMap.entrySet() )
+      $util.qr($ctx.args.put($entry.key, $entry.value))
+      #set( $isAuthorized = true )
+    #end
+  #end
+#end
+#if( !$isAuthorized && $util.isNull($ctx.stash.authFilter) )
+$util.unauthorized()
+#end
+$util.toJson({"version":"2018-05-29","payload":{}})
+## [End] Authorization Steps. **

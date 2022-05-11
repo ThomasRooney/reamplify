@@ -1,0 +1,16 @@
+{
+  "name": "@reamplify/root",
+  "packageManager": "yarn@3.2.0",
+  "author": "Resilient Software Ltd",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "peerDependencies": {
+    "@mdx-js/react": "*",
+    "react": "*"
+  },
+  "resolutions": {
+    "react-error-overlay": "6.0.9"
+  }
+}
