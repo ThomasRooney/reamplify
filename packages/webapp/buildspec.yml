@@ -39,6 +39,7 @@ phases:
           echo $PACKAGE_VERSION > build/.package.version
         else
           echo "Skipping build as no change in source content: $PREVIOUS_SOURCE_TAG == $SOURCE_TAG"
+          aws s3 sync --delete s3://$BUCKET_NAME ./build
         fi
 artifacts:
   files:
