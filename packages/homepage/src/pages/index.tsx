@@ -17,7 +17,7 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="https://app.reflow.io">
+            to="https://reflow.io">
             Reflow (AI-Augmented Browser Tests)
           </Link>
           <Link
