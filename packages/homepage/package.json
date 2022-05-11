@@ -7,7 +7,7 @@
     "start": "docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
-    "deploy": "aws s3 sync ./build s3://web.homepage.us-east-1.reamplify.io --delete; aws cloudfront create-invalidation --distribution-id E272T745FR6MYQ --paths \"/*\"",
+    "deploy": "aws s3 sync ./build s3://web.homepage.us-east-1.reamplify.io --delete; aws cloudfront create-invalidation --distribution-id E7Y8AL17WXU4F --paths \"/*\"",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
