@@ -4,7 +4,6 @@ Re-implementation of the AWS Amplify CLI with pure CDK.
 
  * [Migrate an AWS Amplify Application](#migrate)
  * [Start a new ReAmplify Application](#quickstart)
- * [User Guide](https://reflow.io/docs)
 
 ## Motivation
 
