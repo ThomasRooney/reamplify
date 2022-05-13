@@ -39,7 +39,16 @@ This project is an extraction of the work we did to eject [https://reflow.io](ht
 The core design motivation is reducing the code-paths that run to deploy a given application to a minimum: just the AWS CDK
 CLI.
 
-## Features
+### Who is this for?
+
+This project is for teams who:
+  * Want to make their Amplify Application ready for Production: stabilizing it with patterns for Error Monitoring, Backup/Restore, 
+    and multi-environment deployment. 
+  * Are considering leaving AWS Amplify, but want to do this gradually, avoid the need to rewrite their application code.
+  * Are looking to use AWS Amplify's GraphQL Schema to AppSync Resolver / DynamoDB component standalone in another 
+    application.
+
+## What are the benefits?
 
   * Zero-Install development / deployment process, via Yarn v3 / PnP
   * AWS Amplify Schema compatibility, via direct invocation of Amplify's Schema Transformer toolchain
@@ -56,23 +65,24 @@ On top of this, a few utility features are provided:
  
 This architecture has been battle-tested and is in production use at several companies.
 
-## What doesn't work
+## What is the tradeoff?
 
+ * To use this, your team will need to take ownership of a significant amount of complexity. This complexity
+   may mean learning AWS CDK, and using it to manage your infrastructure, instead of learning how Amplify configures 
+   infrastructure. For small applications, this will _add_ complexity, not remove it. 
  * We haven't implemented any of the following amplify directives. Additional work would be needed before automatically
    creating these resources in a Reamplify application from parsed graphql directives.
    * `@searchable`
    * `@predictions`
    * `@http`
- * We recommend **against** the use of Amplify DataStore, and instead prefer the use of the provided Apollo directives
-   which provide a DataStore compatible live-updating selectively-synced API. We do have a fork of this library which 
-   re-enables the DataStore APIs.
- * HTTP APIs can be more easily defined and managed via CDK Constructs for API Gateway; at request we can help configure
-   this on your behalf.
-
+ * This repository doesn't work with Amplify DataStore. We do have a fork of this library which 
+   re-enables the DataStore APIs ([https://reflow.io](Reflow) uses DataStore), but because enabling DataStore modifies
+   **both** GraphQL DynamoDB attributes and adds a lot of complexity we prefer to keep the library as simple as possible.
+ 
 ## What can be configured
 
  * This repository contains everything needed to deploy a Reamplify app. All AWS Components are 100% configurable. We
-   recommend that you fork this repository and tweak to your needs.
+   recommend that you maintain a private fork of this repository to tweak to your needs.
 
  * The deployment configuration does not use any AWS Amplify resources, instead:
    * Amplify Hosting is replaced by a S3 Static Site w/ Cloudfront
