@@ -19,7 +19,7 @@ phases:
       - yarn --version
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - COMMIT_TAG=${COMMIT_HASH:=latest}
-      - SOURCE_TAG=$(( find . -type f -print0 ) | sort -z | xargs -0 sha1sum | sha1sum | awk '{ print $1 }')
+      - SOURCE_TAG=$(( find . -type f -print0  ) | sort -z | ( xargs -0 sha1sum ; cat ../../README.md ) | sha1sum | awk '{ print $1 }')
       - echo $SOURCE_TAG
       - aws s3 cp s3://$BUCKET_NAME/.version . || rm -f .version && touch .version
       - PREVIOUS_SOURCE_TAG=$(cat .version)
