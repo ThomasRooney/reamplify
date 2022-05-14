@@ -20,7 +20,13 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  flex-wrap: wrap;
 }
+
+.buttons a {
+  margin: 5px;
+}
+
 
 main {
   margin: 1rem auto;
